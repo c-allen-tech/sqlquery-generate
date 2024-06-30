@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageVersion>0.9.18</PackageVersion>
+    <PackageReleaseNotes>Update M.D.S.</PackageReleaseNotes>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="sample.json" />
+    <None Remove="script.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="readme.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\SQLQueryStress\ConnectionInfo.cs" Link="ConnectionInfo.cs" />
+    <Compile Include="..\SQLQueryStress\JsonSerializer.cs" Link="JsonSerializer.cs" />
+    <Compile Include="..\SQLQueryStress\LoadEngine.cs" Link="LoadEngine.cs" />
+    <Compile Include="..\SQLQueryStress\QueryStressSettings.cs" Link="QueryStressSettings.cs" />
+  </ItemGroup>  
+
+  <ItemGroup>
+    <Content Include="script.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>  
+
+  <ItemGroup>
+    <EmbeddedResource Include="sample.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+    <PackageReference Include="Spectre.Console" Version="0.49.1" />
+  </ItemGroup>
+  
+</Project>

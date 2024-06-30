@@ -1,0 +1,101 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <SignManifests>false</SignManifests>
+    <AssemblyOriginatorKeyFile>sqlQueryStress.snk</AssemblyOriginatorKeyFile>
+    <ApplicationIcon>Resources\QueryStressIcon.ico</ApplicationIcon>
+    <ProductName>SQLQueryStress</ProductName>
+    <PublisherName>Adam Machanic</PublisherName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<PublishSingleFile>true</PublishSingleFile>
+	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	<EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="AboutBox.cs" />
+    <Compile Update="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Update="DatabaseSelect.cs" />
+    <Compile Update="DatabaseSelect.Designer.cs">
+      <DependentUpon>DatabaseSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Update="FormMain.cs" />
+    <Compile Update="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Update="DataViewer.cs" />
+    <Compile Update="DataViewer.Designer.cs">
+      <DependentUpon>DataViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Options.cs" />
+    <Compile Update="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Update="ParamWindow.cs" />
+    <Compile Update="ParamWindow.Designer.cs">
+      <DependentUpon>ParamWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Update="SqlControl.xaml.cs">
+      <DependentUpon>SqlControl.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="AboutBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DatabaseSelect.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DatabaseSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FormMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DataViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Options.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ParamWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ParamWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="Resources\SQL.xshd" />
+    <Compile Update="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\QueryStressIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.3.0.90" />
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SqlQueryStressCLI": {
+      "commandName": "Project",
+      "commandLineArgs": "--help"
+    }
+  }
+}
